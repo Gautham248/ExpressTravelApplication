@@ -1,0 +1,348 @@
+/* manager.css */
+
+
+/* Color Variables (converted into direct values in the CSS) */
+:root {
+  --primary-color: #6366f1;
+  --background-color: #f4f4f4;
+  --text-color: #333;
+  --light-text: #666;
+  --border-color: #eee;
+  --white: white;
+  --badge-color: red;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--white);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sidebar-logo {
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 10px 0;
+  flex-grow: 1;
+}
+
+.sidebar-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sidebar-menu li:hover {
+  background-color: #e0e0e0;
+}
+
+.sidebar-menu li.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--white);
+}
+
+.messages-badge {
+  background-color: var(--badge-color);
+  color: var(--white);
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 10px;
+  margin-left: 10px;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-weight: 600;
+}
+
+.profile-email {
+  color: var(--light-text);
+  font-size: 0.8rem;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 30px;
+  background-color: var(--background-color);
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.new-request-btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.request-table {
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.request-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.request-table th {
+  background-color: #f0f0f0;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.request-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.travel-type-international {
+  background-color: #e6f2ff;
+  color: #0070f3;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+.travel-type-domestic {
+  background-color: #e6f3f0;
+  color: #10b981;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .sidebar-menu {
+    display: flex;
+    flex-grow: 1;
+    overflow-x: auto;
+  }
+
+  .sidebar-profile {
+    border-top: none;
+    border-left: 1px solid var(--border-color);
+  }
+}
+
+/* Search Bar Styles */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.search-input {
+  padding: 8px 12px;
+  padding-right: 32px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  width: 200px;
+  transition: width 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  width: 250px;
+}
+
+.search-btn {
+  position: absolute;
+  right: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--light-text);
+  padding: 4px;
+}
+
+.search-btn:hover {
+  color: var(--primary-color);
+}
+
+/* Dropdown Styles */
+select {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Date Picker */
+#date-picker {
+  padding: 7px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Add to your existing CSS */
+.travel-type-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* tbody scrollable */
+.request-table tbody {
+  display: block;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.request-table thead, .request-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.request-table thead {
+  width: calc( 100% - 1em );
+}
+
+/* Add space between Request ID and Employee Name columns */
+.request-table th:nth-child(2),
+.request-table td:nth-child(2) {
+  padding-left: 30px;
+}
+/* Add these styles to your existing manager.css */
+
+/* Date Picker Styles */
+.date-input {
+  padding: 8px 12px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 150px;
+  transition: all 0.3s ease;
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+/* Header Actions Layout */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.header-actions > * {
+  margin-bottom: 10px;
+}
+
+/* Make sure the date picker appears above other elements */
+.flatpickr-calendar {
+  z-index: 1000 !important;
+}
+
+/* Responsive adjustments for filters */
+@media screen and (max-width: 1200px) {
+  .header-actions {
+    gap: 8px;
+  }
+  
+  .header-actions select, 
+  .header-actions .search-container,
+  .header-actions .date-input {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .header-actions {
+    width: 100%;
+  }
+  
+  .header-actions > * {
+    width: 100%;
+    max-width: none;
+  }
+}
