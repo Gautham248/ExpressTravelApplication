@@ -1,0 +1,116 @@
+<!-- ######################################---ADVAIT---############################################################## -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">XPress</div>
+            <div class="nav-item">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'/%3E%3C/svg%3E" width="20" height="20" alt="Home">
+                <p>Home</p>
+            </div>  
+            <div class="nav-item active">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z'/%3E%3C/svg%3E" width="20" height="20" alt="Ticket Status">
+                <p>Raise a Ticket</p>
+            </div>
+            <div class="nav-item">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'/%3E%3C/svg%3E" width="20" height="20" alt="Travel History">
+                <p>Travel Status</p>
+            </div>
+            <div class="nav-item notifications">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9'/%3E%3C/svg%3E" width="20" height="20" alt="Notifications">
+                <p>Notifications</p>
+                <span class="badge">10</span>
+            </div>
+            <div class="nav-item">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'/%3E%3C/svg%3E" width="20" height="20" alt="Settings">
+                <p>Settings</p>
+            </div>
+        </div>
+        <div class="right-pane">
+            <div class="top-buttons">
+                <button class="btn btn-primary">Raise Travel Ticket</button>
+                <a href="ViewStatus.html">
+                    <button class="btn btn-light">View Ticket Status</button>
+                </a>
+                <button class="btn btn-light">View Travel History</button>
+            </div>
+
+            <form class="travel-form">
+                <h2 class="travel-form-title">Travel Details</h2>
+        
+                <!-- Source Section -->
+                <div class="travel-form-group">
+                    <label class="travel-form-label">Source</label>
+                    <div class="location-fields">
+                        <div class="location-field">
+                            <input type="text" id="source-country" class="travel-form-input" 
+                                   placeholder="Enter Country..." required>
+                        </div>
+                        <br>
+                        <div class="location-field">
+                            <input type="text" id="source-city" class="travel-form-input" 
+                                   placeholder="Enter City..." required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destination Section -->
+                <div class="travel-form-group">
+                    <label class="travel-form-label">Destination</label>
+                    <div class="location-fields">
+                        <div class="location-field">
+                            <input type="text" id="destination-country" class="travel-form-input" 
+                                   placeholder="Enter Country..." required>
+                        </div>
+                        <br>
+                        <div class="location-field">
+                            <input type="text" id="destination-city" class="travel-form-input" 
+                                   placeholder="Enter City..." required>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="travel-form-group">
+                    <label for="project-code" class="travel-form-label">Project Code</label>
+                    <input type="text" id="project-code" class="travel-form-input" placeholder="Enter Project Code..." required>
+                </div>
+        
+                <div class="travel-form-group">
+                    <label for="reporting-manager" class="travel-form-label">Reporting Manager</label>
+                    <input type="text" id="reporting-manager" class="travel-form-input" placeholder="Enter Manager mail id..." required>
+                </div>
+
+                <div class="travel-form-group">
+                    <p class="travel-form-label">Travel Type</p>
+                    <div class="travel-form-radio-group">
+                        <input type="radio" id="international" name="travel-type" class="travel-form-radio">
+                        <label for="international">International</label>
+                        <input type="radio" id="domestic" name="travel-type" class="travel-form-radio" checked>
+                        <label for="domestic">Domestic</label>
+                    </div>
+                </div>
+        
+                <div class="travel-form-group">
+                    <label for="travel-date" class="travel-form-label">Travel Date</label>
+                    <input type="date" id="travel-date" class="travel-form-input" required>
+                </div>
+                
+                <button type="submit" id="submit-button" class="travel-form-button">Submit</button>
+            </form>
+            <div class="user-profile">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E" alt="Profile">
+                
+            </div>
+        </div>
+        <script src="scripts.js"></script>
+    </body>
+</html>

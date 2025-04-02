@@ -1,0 +1,215 @@
+// Color Variables
+$primary-color: #6366f1;
+$background-color: #f4f4f4;
+$text-color: #333;
+$light-text: #666;
+$border-color: #eee;
+$white: white;
+$badge-color: red;
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin box-shadow-light {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+ 
+body {
+    display: flex;
+    height: 100vh;
+    background-color: $background-color;
+}
+ 
+.container {
+    display: flex;
+    width: 100%;
+}
+ 
+.sidebar {
+    width: 250px;
+    background-color: $white;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &-logo {
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: $text-color;
+        border-bottom: 1px solid $border-color;
+    }
+
+    &-menu {
+        list-style: none;
+        padding: 10px 0;
+        flex-grow: 1;
+
+        li {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: darken($background-color, 5%);
+            }
+
+            &.active {
+                background-color: $primary-color;
+                color: $white;
+            }
+        }
+    }
+
+    &-profile {
+        @include flex-center;
+        padding: 15px;
+        border-top: 1px solid $border-color;
+        background-color: $white;
+    }
+}
+
+.messages-badge {
+    background-color: $badge-color;
+    color: $white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 10px;
+    margin-left: 10px;
+}
+
+.profile {
+    &-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    &-details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-name {
+        font-weight: 600;
+    }
+
+    &-email {
+        color: $light-text;
+        font-size: 0.8rem;
+    }
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: $background-color;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    &-title {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    &-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+.new-request-btn {
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.request-table {
+    width: 100%;
+    background-color: $white;
+    border-radius: 8px;
+    @include box-shadow-light;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: lighten($background-color, 3%);
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid $border-color;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid $border-color;
+    }
+}
+
+.travel {
+    &-type {
+        &-international {
+            background-color: #e6f2ff;
+            color: #0070f3;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+
+        &-domestic {
+            background-color: #e6f3f0;
+            color: #10b981;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+    }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+
+        &-menu {
+            display: flex;
+            flex-grow: 1;
+            overflow-x: auto;
+        }
+
+        &-profile {
+            border-top: none;
+            border-left: 1px solid $border-color;
+        }
+    }
+}
