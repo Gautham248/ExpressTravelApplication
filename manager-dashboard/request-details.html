@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPress - Travel Request Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+    <div class="manager-dashboard">
+        <div class="sidebar">
+            <div class="sidebar-logo">XPress</div>
+            <ul class="sidebar-menu">
+                <li>Dashboard</li>
+                <li class="active">Request Management</li>
+                <li>Analytics</li>
+                <li>Personal <span class="messages-badge">99</span></li>
+                <li>Messages</li>
+                <li>Notifications</li>
+                <li>Setting</li>
+            </ul>
+           
+            <div class="sidebar-profile">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E" alt="Profile" style="height:80%;">
+                <div class="profile-details">
+                    <div class="profile-name"></div>
+                    <div class="profile-email"></div>
+                </div>
+            </div>
+        </div>
+
+        <main class="manager-request-details">
+            <header class="request-details-header">
+                <a href="manager.html"><button class="btn-back">← Back to Requests</button></a>
+                <h2>Request ID <span id="request-id-number"></span> </h2>
+            </header>
+
+            <section class="request-overview">
+                <div class="request-overview-grid">
+                    <div class="request-overview-item employee-details">
+                        <label>Employee Details</label>
+                        <div id="employee-info">
+                            <div id="employee-name">Loading...</div>
+                            <div id="employee-id">Loading...</div>
+                            <div id="employee-department">Loading...</div>
+                        </div>
+                    </div> <br>
+                    <div class="request-overview-item">
+                        <label>Project Code</label>
+                        <span id="project-code"></span>
+                    </div>
+                    <div class="request-overview-item">
+                        <label>Travel Type</label>
+                        <span id="travel-type"></span>
+                    </div>
+                    <div class="request-overview-item">
+                        <label>Source</label>
+                        <span id="source"></span>
+                    </div>
+                    <div class="request-overview-item">
+                        <label>Destination</label>
+                        <span id="destination"></span>
+                    </div>
+                    <div class="request-overview-item">
+                        <label>Date of Travel</label>
+                        <span id="travel-date"></span>
+                    </div>
+                    <div class="request-overview-item">
+                        <label>Status</label>
+                        <span id="status"></span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="request-progress">
+                <h3>Request Progress</h3>
+                <div class="progress-timeline">
+                    <div class="progress-step">
+                        <div class="step-icon">1</div>
+                        <!-- ✓ -->
+                        <div class="step-details">
+                            <h6>Request Raised</h6>
+                        </div>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-icon">2</div>
+                        <div class="step-details">
+                            <h6>Waiting for Manager Approval</h6>
+                        </div>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-icon">3</div>
+                        <div class="step-details">
+                            <h6>Waiting for Ticket Confirmation</h6>
+                        </div>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-icon">4</div>
+                        <div class="step-details">
+                            <h6>Request Closed</h6>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="request-actions">
+                <div class="action-buttons">
+                    <button class="btn-approve">Approve Request</button>
+                    <button class="btn-reject">Reject Request</button>
+                </div>
+            </section>
+
+            <section class="request-communication">
+                <div class="communication-container">
+                    <!-- Ticket Options section -->
+                    <div class="ticket-options-section">
+                        <h2>Ticket Options</h2>
+                        <div class="ticket-options-container" id="ticket-options-container">
+                            <!-- Ticket options will be dynamically loaded here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Communication section -->
+                    <div class="communication-section">
+                        <h2>Communication</h2>
+                        <div class="communication-log">
+                            <!-- Communication messages would be dynamically added here -->
+                        </div>
+                        <div class="communication-input">
+                            <textarea placeholder="Click on the Ticket ID number to copy the same..."></textarea>
+                            <button class="btn-send">Send</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+        </main>
+    </div>
+
+    
+    <!-- <script src="scripts.js"></script> -->
+    <script src="scripts.js"></script>
+</body>
+</html>
