@@ -1,7 +1,6 @@
-const TRAVEL_REQUESTS_URL = 'https://xpress-d7ec9-default-rtdb.asia-southeast1.firebasedatabase.app/travelRequests.json';
-const EMPLOYEE_DETAILS_URL = 'https://xpress-d7ec9-default-rtdb.asia-southeast1.firebasedatabase.app/employees.json';
-const MANAGERS_DETAILS_URL = 'https://xpress-d7ec9-default-rtdb.asia-southeast1.firebasedatabase.app/managers.json';
-
+const TRAVEL_REQUESTS_URL = 'https://sample-cd206-default-rtdb.firebaseio.com/travelRequests.json';
+const EMPLOYEE_DETAILS_URL = 'https://sample-cd206-default-rtdb.firebaseio.com/employees.json';
+const MANAGERS_DETAILS_URL = 'https://sample-cd206-default-rtdb.firebaseio.com/managers.json';
 class TravelRequestManager {
     constructor() {
         this.initialize();

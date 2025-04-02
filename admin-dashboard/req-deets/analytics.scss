@@ -1,0 +1,517 @@
+/* styles.scss */
+
+$primary-color: #4CAF50;
+$primary-color-hover: #3e8e41;
+$secondary-color: #ccc;
+$error-color: #F44336;
+$info-color: #2196F3;
+$warning-color: #FFC107;
+$pending-color: #9C27B0;
+$grid-line-color: #f0f0f0;
+$text-color: #333;
+$loading-text-color: #666;
+$white: white;
+$analytics-color: #636AE8; // Changed Analytics color
+
+
+/* Color Variables */
+$primary-color: #6366f1;
+$background-color: #f4f4f4;
+$text-color: #333;
+$light-text: #666;
+$border-color: #eee;
+$white: white;
+$badge-color: red;
+$hover-color: #636AE8; /* Added hover color */
+
+/* Mixins */
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: $white;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-right: 1.5px solid black; /* From styles.css */
+
+    &-logo {
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: $hover-color; /* Change logo color */
+        border-bottom: 1px solid $border-color;
+    }
+
+    &-profile {
+        @include flex-center;
+        padding: 15px;
+        border-top: 1px solid $border-color;
+        background-color: $white;
+    }
+}
+
+/* Menu Styles */
+.ge-dashboard-menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 100px;
+    list-style: none;
+    padding: 10px 0;
+    flex-grow: 1;
+}
+
+.ge-dashboard-menu-item {
+    padding: 10px;
+    text-decoration: none;
+    color: #333; /* Default text color */
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ge-dashboard-menu-item-active {
+    background-color: #636AE8; /* Analytics active color */
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 3px;
+}
+
+.ge-dashboard-menu-item:hover {
+    background-color: #636AE8; /* Hover background color */
+    color: white;
+}
+
+.ge-dashboard-badge {
+    background-color: #F44336; /* Error color for badge */
+    color: white;
+    padding: 2px 5px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+/* Profile Styles */
+.profile {
+    &-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    &-details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-name {
+        font-weight: 600;
+        color: $hover-color; /* Change name color */
+    }
+
+    &-email {
+        color: $hover-color; /* Change email color */
+        font-size: 0.8rem;
+    }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+
+        &-menu {
+            display: flex;
+            flex-grow: 1;
+            overflow-x: auto;
+        }
+
+        &-profile {
+            border-top: none;
+            border-left: 1px solid $border-color;
+        }
+    }
+}
+
+.ge-dashboard-page {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    font-family: Arial, sans-serif;
+}
+.ge-dashboard-sidebar {
+    width: 210px;
+    max-width: 250px;
+    background-color: $white;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Changed to flex-start to align items at the top */
+    /* justify-content: space-around; */ /* Removed to bring Dashboard up */
+    
+}
+
+.ge-dashboard-logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px; /* Reduced margin to bring Dashboard up */
+    white-space: nowrap; /* Prevent logo text from wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+    color: #636AE8; /* Changed logo color to #636AE8 */
+}
+
+.ge-dashboard-menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px; /* Add some top margin to separate from the logo */
+}
+
+.ge-dashboard-menu-item {
+    padding: 10px;
+    text-decoration: none;
+    color: $text-color;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Prevent menu text from wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+
+    &.active {
+        background-color: transparent; /* Remove the background color */
+        color: $text-color; /* Ensure text color is consistent */
+    }
+
+    &.analytics-active {
+        background-color: $analytics-color;
+        color: $white;
+        padding-left: 5px; /* Added padding to reduce width */
+        padding-right: 5px; /* Added padding to reduce width */
+        margin-right: 3px; /* Added margin to create space from the black line */
+    }
+
+    &:hover {
+        background-color: #636AE8;
+        color: $white;
+    }
+
+    &:last-child {
+        margin-bottom: 90px; /* Adjust as needed */
+    }
+}
+
+.ge-dashboard-badge {
+    background-color: $error-color;
+    color: $white;
+    padding: 2px 5px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.ge-dashboard-content {
+    max-width: 70vw;
+    max-height: 70vh;
+}
+
+.ge-dashboard-container {
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+    grid-template-rows: 50vh 50vh;
+    height: 90vh;
+    width: 90vw;
+    max-width: 90vw;
+    max-height: 100vh;
+    transform: scale(0.8) translateX(-11%); /* Adjust scale and translateX as needed */
+}
+
+.ge-dashboard-quadrant {
+    border: 3px solid $secondary-color;
+}
+
+.ge-dashboard-timeline {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.ge-dashboard-filter {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ge-dashboard-filter-content {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    gap: 10px;
+    // padding: 10px;
+}
+
+.ge-dashboard-chart-heading {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.ge-dashboard-chart-container, .ge-dashboard-status-chart-container {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.ge-dashboard-status-chart-container {
+    display: none;
+}
+
+.ge-dashboard-filter-container {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    // padding: 10px;
+
+    label, input {
+        white-space: normal;
+        font-size: 12px;
+    }
+
+    button {
+        background-color: $primary-color;
+        color: $white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover {
+            background-color: $primary-color-hover;
+        }
+    }
+}
+
+.ge-dashboard-date-range-display {
+    grid-column: 1 / 3;
+    grid-row: 4;
+    text-align: left;
+    font-size: 12px;
+}
+
+.ge-dashboard-pie {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.ge-dashboard-visualization-container {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    max-height: 40vh;
+    margin-top: 10px;
+    margin-left: 5vw;
+}
+
+.ge-dashboard-chart-wrapper {
+    position: relative;
+    height: 35vh;
+    width: 80vw;
+    border-left: 2px solid $text-color;
+    border-bottom: 2px solid $text-color;
+    padding: 20px;
+    padding-left: 0;
+    margin-left: 60px;
+}
+
+.ge-dashboard-y-axis {
+    position: absolute;
+    left: -10px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+}
+
+.ge-dashboard-y-axis-label {
+    transform: translateX(-50px);
+    text-align: right;
+    width: 40px;
+    font-size: 12px;
+    position: absolute;
+}
+
+.ge-dashboard-x-axis {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ge-dashboard-x-axis-label {
+    text-align: center;
+    font-size: 12px;
+    white-space: nowrap;
+    position: absolute;
+    transform: translateX(-50%);
+    line-height: 1.2;
+}
+
+.ge-dashboard-bar {
+    position: absolute;
+    bottom: 0;
+    width: 30px;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.ge-dashboard-tooltip {
+    position: absolute;
+    background: $white;
+    border: 1px solid $secondary-color;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+}
+
+.ge-dashboard-grid-line {
+    position: absolute;
+    background-color: $grid-line-color;
+    left: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.ge-dashboard-legend-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 5vw;
+}
+
+.ge-dashboard-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+.ge-dashboard-legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.ge-dashboard-legend-color {
+    width: 12px;
+    height: 12px;
+    margin-right: 3px;
+}
+
+.ge-dashboard-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.ge-dashboard-loading {
+    text-align: center;
+    margin: 10px;
+    font-size: 16px;
+    color: $loading-text-color;
+}
+
+.ge-dashboard-pie-container {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    max-height: 80vh;
+    margin-left: 20px;
+}
+
+.ge-dashboard-pie .ge-dashboard-chart-wrapper {
+    width: 70%;
+    height: 45vh;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ge-dashboard-pie .ge-dashboard-controls {
+    position: absolute;
+    left: 70%;
+    top: 50%;
+    transform: translateY(-10%);
+}
+
+.ge-dashboard-user {
+    display: flex; /* Changed to flex for horizontal layout */
+    align-items: center; /* Align items vertically in the center */
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.ge-dashboard-user-icon {
+    font-size: 24px;
+    margin-right: 10px; /* Add margin to separate icon from details */
+}
+
+.ge-dashboard-user-details {
+    display: flex;
+    flex-direction: column; /* Ensure name and email are stacked */
+}
+
+.ge-dashboard-user-name {
+    font-weight: bold;
+    font-size: 14px; /* Reduced font size if needed */
+    margin: 0; /* Remove default margins */
+    padding: 0;
+}
+
+.ge-dashboard-user-email {
+    font-size: 12px;
+    color: #666;
+    margin: 0; /* Remove default margins */
+    padding: 0;
+}

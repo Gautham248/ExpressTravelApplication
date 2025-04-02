@@ -12,7 +12,7 @@ $primary-green: #17A948;
 $secondary-green: #B8F5CD;
 $red: #E86375;
 $badge-color: red;
-
+$hover-color: #636AE8; /* Added hover color */
 // Mixins
 @mixin flex-center {
     display: flex;
@@ -34,6 +34,7 @@ $badge-color: red;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
@@ -50,73 +51,205 @@ body {
 }
 
 // Sidebar Styles
-.manager-sidebar, .sidebar {
-    width: 200px;
+// .manager-sidebar, .sidebar {
+//     width: 200px;
+//     background-color: $white;
+//     border-right: 1px solid $border-color;
+//     display: flex;
+//     flex-direction: column;
+//     padding: 20px;
+
+//     &-logo {
+//         font-size: 24px;
+//         font-weight: bold;
+//         color: $primary-color;
+//         margin-bottom: 30px;
+//         border-bottom: 1px solid $border-color;
+//     }
+
+//     &-nav, &-menu {
+//         list-style: none;
+//         padding: 0;
+//         flex-grow: 1;
+
+//         li {
+//             margin-bottom: 15px;
+
+//             a, & {
+//                 text-decoration: none;
+//                 color: $light-text;
+//                 display: flex;
+//                 align-items: center;
+//                 padding: 10px;
+//                 border-radius: 8px;
+//                 transition: background-color 0.3s;
+//                 cursor: pointer;
+
+//                 &:hover, &.active {
+//                     background-color: $primary-color;
+//                     color: $white;
+//                 }
+//             }
+//         }
+//     }
+
+//     &-user, &-profile {
+//         @include flex-center;
+//         margin-top: auto;
+//         padding: 15px;
+//         border-top: 1px solid $border-color;
+
+//         img, .profile-image {
+//             width: 40px;
+//             height: 40px;
+//             border-radius: 50%;
+//             margin-right: 10px;
+//         }
+
+//         .profile-details {
+//             display: flex;
+//             flex-direction: column;
+
+//             .profile-name {
+//                 font-weight: 600;
+//             }
+
+//             .profile-email {
+//                 color: $light-text;
+//                 font-size: 0.7rem;
+//             }
+//         }
+//     }
+// }
+
+/* Color Variables */
+$primary-color: #6366f1;
+$background-color: #f4f4f4;
+$text-color: #333;
+$light-text: #666;
+$border-color: #eee;
+$white: white;
+$badge-color: red;
+$hover-color: #636AE8; /* Added hover color */
+
+/* Mixins */
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
     background-color: $white;
-    border-right: 1px solid $border-color;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    position: relative;
+    border-right: 1.5px solid black; /* From styles.css */
 
     &-logo {
+        padding: 20px;
         font-size: 24px;
         font-weight: bold;
-        color: $primary-color;
-        margin-bottom: 30px;
+        color: $hover-color; /* Change logo color */
         border-bottom: 1px solid $border-color;
     }
 
-    &-nav, &-menu {
-        list-style: none;
-        padding: 0;
-        flex-grow: 1;
-
-        li {
-            margin-bottom: 15px;
-
-            a, & {
-                text-decoration: none;
-                color: $light-text;
-                display: flex;
-                align-items: center;
-                padding: 10px;
-                border-radius: 8px;
-                transition: background-color 0.3s;
-                cursor: pointer;
-
-                &:hover, &.active {
-                    background-color: $primary-color;
-                    color: $white;
-                }
-            }
-        }
-    }
-
-    &-user, &-profile {
+    &-profile {
         @include flex-center;
-        margin-top: auto;
         padding: 15px;
         border-top: 1px solid $border-color;
+        background-color: $white;
+    }
+}
 
-        img, .profile-image {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
+/* Menu Styles */
+.ge-dashboard-menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 100px;
+    list-style: none;
+    padding: 10px 0;
+    flex-grow: 1;
+}
+
+.ge-dashboard-menu-item {
+    padding: 10px;
+    text-decoration: none;
+    color: #333; /* Default text color */
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ge-dashboard-menu-item-active {
+    background-color: #636AE8; /* Analytics active color */
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 3px;
+}
+
+.ge-dashboard-menu-item:hover {
+    background-color: #636AE8; /* Hover background color */
+    color: white;
+}
+
+.ge-dashboard-badge {
+    background-color: #F44336; /* Error color for badge */
+    color: white;
+    padding: 2px 5px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+/* Profile Styles */
+.profile {
+    &-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    &-details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-name {
+        font-weight: 600;
+        color: $hover-color; /* Change name color */
+    }
+
+    &-email {
+        color: $hover-color; /* Change email color */
+        font-size: 0.8rem;
+    }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+
+        &-menu {
+            display: flex;
+            flex-grow: 1;
+            overflow-x: auto;
         }
 
-        .profile-details {
-            display: flex;
-            flex-direction: column;
-
-            .profile-name {
-                font-weight: 600;
-            }
-
-            .profile-email {
-                color: $light-text;
-                font-size: 0.7rem;
-            }
+        &-profile {
+            border-top: none;
+            border-left: 1px solid $border-color;
         }
     }
 }
@@ -241,6 +374,7 @@ body {
             height: 40px;
             border-radius: 50%;
             margin: 0 auto 10px;
+            padding: 5px;
             background-color: #E0E0E0;
             color: $white;
         }

@@ -1,4 +1,5 @@
-// Color Variables
+/* manager.css */
+/* Color Variables */
 $primary-color: #6366f1;
 $background-color: #f4f4f4;
 $text-color: #333;
@@ -6,8 +7,9 @@ $light-text: #666;
 $border-color: #eee;
 $white: white;
 $badge-color: red;
+$hover-color: #636AE8; /* Added hover color */
 
-// Mixins
+/* Mixins */
 @mixin flex-center {
     display: flex;
     align-items: center;
@@ -17,24 +19,29 @@ $badge-color: red;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
- 
+
 body {
     display: flex;
     height: 100vh;
     background-color: $background-color;
 }
- 
+
 .container {
     display: flex;
     width: 100%;
 }
- 
+
 .sidebar {
     width: 250px;
     background-color: $white;
@@ -47,7 +54,7 @@ body {
         padding: 20px;
         font-size: 24px;
         font-weight: bold;
-        color: $text-color;
+        color: $hover-color; /* Change logo color */
         border-bottom: 1px solid $border-color;
     }
 
@@ -55,21 +62,6 @@ body {
         list-style: none;
         padding: 10px 0;
         flex-grow: 1;
-
-        li {
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-
-            &:hover {
-                background-color: darken($background-color, 5%);
-            }
-
-            &.active {
-                background-color: $primary-color;
-                color: $white;
-            }
-        }
     }
 
     &-profile {
@@ -104,10 +96,11 @@ body {
 
     &-name {
         font-weight: 600;
+        color: $hover-color; /* Change name color */
     }
 
     &-email {
-        color: $light-text;
+        color: $hover-color; /* Change email color */
         font-size: 0.8rem;
     }
 }
@@ -212,4 +205,50 @@ body {
             border-left: 1px solid $border-color;
         }
     }
+}
+
+/* styles.css */
+.sidebar {
+    border-right: 1.5px solid black;
+}
+
+.ge-dashboard-menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+.ge-dashboard-menu-item {
+    padding: 10px;
+    text-decoration: none;
+    color: #333; /* Default text color */
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ge-dashboard-menu-item-active {
+    background-color: #636AE8; /* Analytics active color */
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 3px;
+}
+
+.ge-dashboard-menu-item:hover {
+    background-color: #636AE8; /* Hover background color */
+    color: white;
+}
+
+.ge-dashboard-badge {
+    background-color: #F44336; /* Error color for badge */
+    color: white;
+    padding: 2px 5px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-left: 5px;
 }

@@ -5,35 +5,38 @@
     <title>XPress - Travel Request Management</title>
     <link rel="stylesheet" href="manager.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <style>
+        .sidebar {
+            border-right: 1px solid #ddd; /* Add a right border */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
             <div class="sidebar-logo">XPress</div>
-            <ul class="sidebar-menu">
-                <li>Dashboard</li>
-                <li class="active">Request Management</li>
-                <li>Analytics</li>
-                <li>Personal <span class="messages-badge">99</span></li>
-                <li>Messages</li>
-                <li>Notifications</li>
-                <li>Setting</li>
-            </ul>
+            <nav class="ge-dashboard-menu">
+                <a href="dashboard.html" class="ge-dashboard-menu-item">Dashboard</a>
+                <a href="request-management.html" class="ge-dashboard-menu-item ge-dashboard-menu-item-active">Request Management</a>
+                <a href="analytics.html" class="ge-dashboard-menu-item">Analytics</a>
+                <a href="#" class="ge-dashboard-menu-item">Personal <span class="ge-dashboard-badge">99</span></a>
+                <a href="#" class="ge-dashboard-menu-item">Messages</a>
+                <a href="#" class="ge-dashboard-menu-item">Notifications</a>
+                <a href="#" class="ge-dashboard-menu-item">Setting</a>
+            </nav>
             
             <!-- <div class="sidebar-profile">
                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E" alt="Profile" style="height:80%; width: 40px;">
                 <div class="profile-details">
-                    <div class="profile-name"></div>
-                    <div class="profile-email"></div>
+                    <div class="profile-name">Shaik Abdul</div>
+                    <div class="profile-email">shaik@gmail.com</div>
                 </div>
             </div> -->
         </div>
     
         <div class="main-content">
             <div class="header">
-                <div class="header-title">Travel Request Management</div>
+                <div class="header-title">Request Management</div> 
                 <div class="header-actions">
                     <div class="search-container">
                         <input type="text" id="request-search" placeholder="Search..." class="search-input">
@@ -69,7 +72,6 @@
                         <option value="custom">Choose Date...</option>
                     </select>
                     <input type="text" id="date-picker" class="date-input" placeholder="Select Date" style="display: none;">
-                    <!-- <button class="new-request-btn">New Request</button> -->
                 </div>
             </div>
     
@@ -89,11 +91,13 @@
                         </tr>
                     </thead>
                     <tbody id="requests-tbody">
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="scripts.js"></script>
 </body>
 </html>

@@ -1,7 +1,9 @@
+/* Added hover color */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
@@ -16,69 +18,116 @@ body {
   height: 100vh;
 }
 
-.manager-sidebar, .sidebar {
-  width: 200px;
+/* Color Variables */
+/* Added hover color */
+/* Mixins */
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
   background-color: white;
-  border-right: 1px solid #E0E0E0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  position: relative;
+  border-right: 1.5px solid black; /* From styles.css */
 }
-.manager-sidebar-logo, .sidebar-logo {
+.sidebar-logo {
+  padding: 20px;
   font-size: 24px;
   font-weight: bold;
-  color: #636AE8;
-  margin-bottom: 30px;
-  border-bottom: 1px solid #E0E0E0;
+  color: #636AE8; /* Change logo color */
+  border-bottom: 1px solid #eee;
 }
-.manager-sidebar-nav, .manager-sidebar-menu, .sidebar-nav, .sidebar-menu {
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-top: 1px solid #eee;
+  background-color: white;
+}
+
+/* Menu Styles */
+.ge-dashboard-menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 100px;
   list-style: none;
-  padding: 0;
+  padding: 10px 0;
   flex-grow: 1;
 }
-.manager-sidebar-nav li, .manager-sidebar-menu li, .sidebar-nav li, .sidebar-menu li {
-  margin-bottom: 15px;
-}
-.manager-sidebar-nav li a, .manager-sidebar-nav li, .manager-sidebar-menu li a, .manager-sidebar-menu li, .sidebar-nav li a, .sidebar-nav li, .sidebar-menu li a, .sidebar-menu li {
-  text-decoration: none;
-  color: #666;
-  display: flex;
-  align-items: center;
+
+.ge-dashboard-menu-item {
   padding: 10px;
-  border-radius: 8px;
-  transition: background-color 0.3s;
-  cursor: pointer;
+  text-decoration: none;
+  color: #333; /* Default text color */
+  margin-bottom: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.manager-sidebar-nav li a:hover, .manager-sidebar-nav li a.active, .manager-sidebar-nav li:hover, .manager-sidebar-nav li.active, .manager-sidebar-menu li a:hover, .manager-sidebar-menu li a.active, .manager-sidebar-menu li:hover, .manager-sidebar-menu li.active, .sidebar-nav li a:hover, .sidebar-nav li a.active, .sidebar-nav li:hover, .sidebar-nav li.active, .sidebar-menu li a:hover, .sidebar-menu li a.active, .sidebar-menu li:hover, .sidebar-menu li.active {
-  background-color: #636AE8;
+
+.ge-dashboard-menu-item-active {
+  background-color: #636AE8; /* Analytics active color */
+  color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 3px;
+}
+
+.ge-dashboard-menu-item:hover {
+  background-color: #636AE8; /* Hover background color */
   color: white;
 }
-.manager-sidebar-user, .manager-sidebar-profile, .sidebar-user, .sidebar-profile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: auto;
-  padding: 15px;
-  border-top: 1px solid #E0E0E0;
+
+.ge-dashboard-badge {
+  background-color: #F44336; /* Error color for badge */
+  color: white;
+  padding: 2px 5px;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-left: 5px;
 }
-.manager-sidebar-user img, .manager-sidebar-user .profile-image, .manager-sidebar-profile img, .manager-sidebar-profile .profile-image, .sidebar-user img, .sidebar-user .profile-image, .sidebar-profile img, .sidebar-profile .profile-image {
+
+/* Profile Styles */
+.profile-image {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
 }
-.manager-sidebar-user .profile-details, .manager-sidebar-profile .profile-details, .sidebar-user .profile-details, .sidebar-profile .profile-details {
+.profile-details {
   display: flex;
   flex-direction: column;
 }
-.manager-sidebar-user .profile-details .profile-name, .manager-sidebar-profile .profile-details .profile-name, .sidebar-user .profile-details .profile-name, .sidebar-profile .profile-details .profile-name {
+.profile-name {
   font-weight: 600;
+  color: #636AE8; /* Change name color */
 }
-.manager-sidebar-user .profile-details .profile-email, .manager-sidebar-profile .profile-details .profile-email, .sidebar-user .profile-details .profile-email, .sidebar-profile .profile-details .profile-email {
-  color: #666;
-  font-size: 0.7rem;
+.profile-email {
+  color: #636AE8; /* Change email color */
+  font-size: 0.8rem;
 }
 
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+  }
+  .sidebar-menu {
+    display: flex;
+    flex-grow: 1;
+    overflow-x: auto;
+  }
+  .sidebar-profile {
+    border-top: none;
+    border-left: 1px solid #eee;
+  }
+}
 .messages-badge {
   background-color: red;
   color: white;
@@ -104,7 +153,7 @@ body {
 .request-details-header .btn-back, .header .btn-back {
   background: none;
   border: none;
-  color: #636AE8;
+  color: #6366f1;
   cursor: pointer;
 }
 .request-details-header-title, .header-title {
@@ -180,11 +229,11 @@ body {
 .request-progress .progress-step .step-icon {
   display: flex;
   align-items: center;
-  justify-content: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin: 0 auto 10px;
+  padding: 5px;
   background-color: #E0E0E0;
   color: white;
 }
@@ -194,7 +243,7 @@ body {
 }
 .request-progress .progress-step.active .step-icon {
   color: #BCC1CA;
-  background-color: #636AE8;
+  background-color: #6366f1;
 }
 .request-progress .progress-step.reject .step-icon {
   color: white;
@@ -230,7 +279,7 @@ body {
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: #636AE8;
+  background-color: #6366f1;
   color: white;
   padding: 12px 20px;
   border-radius: 8px;
@@ -277,14 +326,14 @@ body {
   flex-grow: 1;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #eee;
   border-radius: 4px;
   resize: vertical;
   min-height: 200px;
   min-width: 100%;
 }
 .communication-container .communication-section .communication-input .btn-send {
-  background-color: #636AE8;
+  background-color: #6366f1;
   color: white;
   border: none;
   padding: 8px 15px;
@@ -294,11 +343,11 @@ body {
   align-self: flex-end;
 }
 .communication-container .communication-section .communication-input .btn-send:hover {
-  background-color: rgb(76.7765363128, 84.7737430168, 228.7234636872);
+  background-color: rgb(75.6, 79.05, 238.9);
 }
 
 .ticket-options-section {
-  border-right: 1px solid #E0E0E0;
+  border-right: 1px solid #eee;
 }
 .ticket-options-section h3 {
   margin-bottom: 20px;
@@ -343,11 +392,11 @@ body {
   background-color: rgb(251.65, 251.65, 251.65);
   padding: 12px;
   text-align: left;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #eee;
 }
 .request-table td {
   padding: 12px;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #eee;
 }
 
 .travel-type-international {
@@ -381,7 +430,7 @@ body {
   }
   .manager-sidebar-user, .manager-sidebar-profile, .sidebar-user, .sidebar-profile {
     border-top: none;
-    border-left: 1px solid #E0E0E0;
+    border-left: 1px solid #eee;
   }
 }
 .selected-indicator {
